@@ -3,7 +3,6 @@ const apiKey = "a0a4546822c83a6576a602aee18f014b";
 const apiUnsplash = "https://source.unsplash.com/1600x900/?";
 
 const body = document.querySelector("body")
-
 const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
 
@@ -16,13 +15,13 @@ const humidityElement = document.querySelector("#humidity span");
 const windElement = document.querySelector("#wind span");
 
 const weatherContainer = document.querySelector("#weather-data")
-
 const errorMessageContainer = document.querySelector("#error-message");
 const loader = document.querySelector("#loader");
 
 const toggleLoader = () => {
   loader.classList.toggle("hide");
 };
+
 
 // funções
 const getWeatherData = async(city) => {
@@ -45,9 +44,8 @@ const showErrorMessage = () => {
 
 const hideInformation = () => {
   errorMessageContainer.classList.add("hide");
-  weatherContainer.classList.add("hide");
+  weatherContainer.classList.remove("hide");
 
-  suggestionContainer.classList.add("hide");
 };
 
 
@@ -70,6 +68,8 @@ const showWeatherData =  async(city) =>{
   body.style.backgroundImage= `url("${apiUnsplash + city}")`
   body.style.backgroundSize = "cover"
   weatherContainer.classList.remove("hide")
+
+  hideInformation()
 }
 
 
